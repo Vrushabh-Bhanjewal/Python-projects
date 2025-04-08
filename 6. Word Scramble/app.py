@@ -7,7 +7,7 @@ while True:
         break
     else:
         l=list(str) 
+        
         random.shuffle(l) 
-        print(''.join(l),'\n')
-        # print(l)
+        print('Scrambled:',''.join(l),'\n')
 print('Goodbye ')
