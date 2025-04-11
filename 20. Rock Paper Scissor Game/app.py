@@ -69,6 +69,7 @@ def main():
         elif(user_win==2 and comp_win==2):
             print("It's Draw ⚔ 🤝🏻")
         if(user_score >=3 or comp_score>=3):
+            print('\nGame Over')
             if(user_score > comp_score):
                 print('User Win Game 🎉😎')
             else:
