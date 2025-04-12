@@ -15,7 +15,6 @@ facts = [
 ]
 colors = ["Red", "Blue", "Green", "Purple", "Orange", "Turquoise"]
 
-
 print("🤖 ChatBot")
 print(' - Ask me for a joke\n - Fact\n - Color \n - Greeting\n - say bye to exit.\n')
 while True:
