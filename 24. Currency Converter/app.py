@@ -18,28 +18,32 @@ def converter():
             print('Invalid Currency Name ')
             continue
         break
-    amount=int(input(f'Enter {cfrom} amount to Convert'))
+    amount=int(input(f'Enter {cfrom} amount to Convert '))
     search_site=f'https://v6.exchangerate-api.com/v6/{API_KEY}/latest/{cfrom}'
-    search_res=getAPIData(search_site)['conversion_rates']
     try:
+        search_res=getAPIData(search_site)['conversion_rates']
         res_to=search_res[cto]
         conv_amt=res_to*amount
-        print(f'\n✨ Coverting {cfrom} TO {cto} Amount {amount}: {round(conv_amt,3)}')
+        print(f'\n✨ Coverting {cfrom} TO {cto} Amount {amount}: {round(conv_amt,3)}\n')
     except KeyError:
-        print('Sorry, look like currency not available in API data')
+        print('\n❌ Sorry, look like currency not available in API data\n')
     except:
-        print('Look like some error occur')
+        print('Look like some error occur in API Data')
 
     
 def getAPIData(list_site):
-    resp=requests.get(list_site)
-    res=resp.json()
-    print('Wait moment fetching Data',end="")
-    for _ in range(3):
-        time.sleep(0.5)
-        print('.',end="",flush=True)
-    print()
-    return res
+    try:
+        resp=requests.get(list_site)
+        res=resp.json()
+        print('Wait moment fetching Data',end="")
+        for _ in range(3):
+            time.sleep(0.5)
+            print('.',end="",flush=True)
+        print()
+        return res
+    except:
+        print('Problem occur while fetching data...')
+        return {} 
 
 def main():
     global res
